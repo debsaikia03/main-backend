@@ -318,6 +318,8 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
         throw new apiError(400, "Avatar is required");
     };
 
+    //todo: delete old avatar from cloudinary
+    
     const avatar = await uploadOnCloudinary(avatarLocalPath);
 
     if(!avatar.url){
@@ -353,6 +355,8 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
     if(!coverImageLocalPath){
         throw new apiError(400, "Cover Image is required");
     };
+
+    //todo: delete old coverImage from cloudinary
 
     const coverImage = await uploadOnCloudinary(coverImageLocalPath);
 
